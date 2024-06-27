@@ -5,5 +5,8 @@ node_js:
   - "6"
   - "7"
 script: npm run travis
-
-after_success: cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose && rm -rf ./coverage
+before_install:
+  - npm i -g yarn@1.10.1
+after_success: cat ./coverage/lcov.info | node_modules/.bin/coveralls --verbose &&
+    rm -rf ./coverage
+dist: precise
